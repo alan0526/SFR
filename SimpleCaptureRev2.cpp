@@ -1956,6 +1956,7 @@ bool InitializeROIs(string filePath, const flags_t modeflags)
 	return true;
 }
 
+
 double CalcSFR_Hi(wchar_t* ptr_img, Roi_for_SFR & SFRBox, int width, int height, int grey_Level, double MM_PER_PIX, const flags_t modeflags, const int redchan)
 {
 	// added for SFR
@@ -2180,7 +2181,7 @@ double CalcSFR_Hi(wchar_t* ptr_img, Roi_for_SFR & SFRBox, int width, int height,
 						Mask2 += imgOrg[width*(row-2+mRow) + (col-2+mCol)]*DemosaicMask2[mRow][mCol];
 					}
 				}
-				img[width*row + col] = Mask1 + Mask2;
+				img[width*row + col] = Mask1 + Mask2; 
 			}
 		}
 		if (((modeflags.WriteImageLevel >3)&& (lKey == NO_KEY_PRESSED)) || (modeflags.num_frames && (modeflags.WriteImageLevel == 3)))
@@ -2289,7 +2290,7 @@ double CalcSFR_Hi(wchar_t* ptr_img, Roi_for_SFR & SFRBox, int width, int height,
 	if(!err)
 	{
 		SFRBox.SFRValue = ScoreSFR;
-		SFRBox.Edgeangle = atan(slope)*180/M_PI;
+		SFRBox.Edgeangle = atan(slope/2)*180/M_PI;
 		printf("SFRscore = %f\n",ScoreSFR);
 		return ScoreSFR;
 	}
