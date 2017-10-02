@@ -2044,6 +2044,25 @@ double CalcSFR_Hi(wchar_t* ptr_img, Roi_for_SFR & SFRBox, int width, int height,
 
 			cv::Mat roi_file2(ceil(float(size_y)/2), size_x,CV_16U,cv::Scalar::all(0));
 			// Vert SFR Calc - read rows col by col and convert to ratiometric (0 - 1) array.
+			if(modeflags.RCCB)
+			{
+				int shift = 1;
+				for (int row=SFRBox.roi.y+odd_y_offset;row< SFRBox.roi.y+size_y + odd_y_offset;row=row+2)
+			{
+				lCol = 0;
+				for (int col=SFRBox.roi.x + odd_x_offset;col< SFRBox.roi.x+size_x +odd_x_offset;col++)
+				{
+					roi_file2.at<ushort>(lRow,lCol) = (ushort)img[width*(row+shift) + col];
+					lCol++;
+					farea[index] = (double)( img[width*(row+shift) + col])/(double)grey_Level;
+					index++;
+					shift = 1 - shift;
+				}
+				lRow++;
+			}
+			}
+			else
+			{
 			for (int row=SFRBox.roi.y+odd_y_offset;row< SFRBox.roi.y+size_y + odd_y_offset;row=row+2)
 			{
 				lCol = 0;
@@ -2055,6 +2074,7 @@ double CalcSFR_Hi(wchar_t* ptr_img, Roi_for_SFR & SFRBox, int width, int height,
 					index++;
 				}
 				lRow++;
+			}
 			}
 			if (((modeflags.WriteImageLevel >3)&& (lKey == NO_KEY_PRESSED)) || (modeflags.num_frames && (modeflags.WriteImageLevel == 3)))
 				ImageWrite(lFileNameAfter,roi_file2);
@@ -2089,6 +2109,31 @@ double CalcSFR_Hi(wchar_t* ptr_img, Roi_for_SFR & SFRBox, int width, int height,
 			std::string lFileNameAfter = lFileName + "_AfterRemovingRedPixels.pgm";
 			// Horz SFR Calc - read cols row by row an convert
 			cv::Mat roi_file2(size_y,ceil(float(size_x)/2),CV_16U,cv::Scalar::all(0));
+			if(modeflags.RCCB)
+			{
+				int shift = 1;
+				for (int col=SFRBox.roi.x+odd_x_offset;col< SFRBox.roi.x+size_x+odd_x_offset;col=col+2)
+			{
+				lRow = 0;
+				for (int row=SFRBox.roi.y+odd_y_offset;row< SFRBox.roi.y+size_y+odd_y_offset;row++)
+				{
+					roi_file2.at<ushort>(lRow,lCol) = (ushort)img[width*row + col + shift];
+					lRow++;
+		
+
+			//for (int col=0;col< size_x;col=col+2)
+			//{
+			//	for (int row=0;row< size_y;row++)
+			//	{
+					farea[index] = (double)( img[width*row + col + shift])/(double)grey_Level;
+					index++;
+					shift = 1 - shift;
+				}
+				lCol++;
+			}
+			}
+			else
+			{
 			for (int col=SFRBox.roi.x+odd_x_offset;col< SFRBox.roi.x+size_x+odd_x_offset;col=col+2)
 			{
 				lRow = 0;
@@ -2106,6 +2151,7 @@ double CalcSFR_Hi(wchar_t* ptr_img, Roi_for_SFR & SFRBox, int width, int height,
 					index++;
 				}
 				lCol++;
+			}
 			}
 			// now that copy is complete must transpose x and y sizes to match the "rotated" image
 			size_x = SFRBox.roi.height;
