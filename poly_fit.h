@@ -1,10 +1,3 @@
-/*
-	What:	poly_fit.h
-	Who:	Matt Warmuth
-	Where: ZF TRW
-	When:	14.June.2015
-	Why:	Supports poly_fit.c
-*/
 
 #ifndef POLY_FIT_H
 	#define POLY_FIT_H
