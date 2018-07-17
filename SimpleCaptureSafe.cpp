@@ -1,28 +1,4 @@
-//**************************************************************************************
-// Copyright 2012 Aptina Imaging Corporation. All rights reserved.
-//
-//
-// No permission to use, copy, modify, or distribute this software and/or
-// its documentation for any purpose has been granted by Aptina Imaging Corporation.
-// If any such permission has been granted ( by separate agreement ), it
-// is required that the above copyright notice appear in all copies and
-// that both that copyright notice and this permission notice appear in
-// supporting documentation, and that the name of Aptina Imaging Corporation or any
-// of its trademarks may not be used in advertising or publicity pertaining
-// to distribution of the software without specific, written prior permission.
-//
-//
-// This software and any associated documentation are provided "AS IS" and
-// without warranty of any kind. APTINA IMAGING CORPORATION EXPRESSLY DISCLAIMS
-// ALL WARRANTIES EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO, NONINFRINGEMENT
-// OF THIRD PARTY RIGHTS, AND ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS
-// FOR A PARTICULAR PURPOSE. APTINA DOES NOT WARRANT THAT THE FUNCTIONS CONTAINED
-// IN THIS SOFTWARE WILL MEET YOUR REQUIREMENTS, OR THAT THE OPERATION OF THIS SOFTWARE
-// WILL BE UNINTERRUPTED OR ERROR-FREE. FURTHERMORE, APTINA DOES NOT WARRANT OR
-// MAKE ANY REPRESENTATIONS REGARDING THE USE OR THE RESULTS OF THE USE OF ANY
-// ACCOMPANYING DOCUMENTATION IN TERMS OF ITS CORRECTNESS, ACCURACY, RELIABILITY,
-// OR OTHERWISE.
-//*************************************************************************************/
+
 
 ///////////////////////////////////////////////////////////////
 // D E F I N E S
