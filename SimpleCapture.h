@@ -1,10 +1,3 @@
-/*
-	What:	SimpleCapture.h
-	Who:	Marwan Shakar
-	Where:	TRW Automotive
-	When:	???
-	Why:	Header for software to do SFR scoring on images
-*/
 
 #ifndef SIMPLECAPTURE_H
 #define SIMPLECAPTURE_H
