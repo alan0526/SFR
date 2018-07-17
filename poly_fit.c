@@ -1,14 +1,3 @@
-/*
-	What:	poly_fit.c
-	Who:	Matt Warmuth
-	Where: ZF TRW
-	When:	14.June.2015
-	Why:	Used to fit polynomial functions to data
-
-	This was developed for use in SFR routines that try to align edges 
-	before aggregating super-sampled Line Spread Functions (LSF)
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
